@@ -1,4 +1,4 @@
-# survival_analysis
+# Survival Analysis
 
 1.	Determine the survival and density functions for a continuous survival time variablewith hazard function
 Hint: consider the derivative of log(1 + x2).  
