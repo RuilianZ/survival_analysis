@@ -35,3 +35,44 @@ cbind(km_fit$time,
       exp(-cumsum(km_fit$n.event/km_fit$n.risk)))
 ```
 
+
+
+## Question 3
+
+```{r}
+data("tongue")
+
+aneuploid = subset(tongue, type == 1)
+diploid = subset(tongue, type == 2)
+
+aneuploid$surv_obj <- with(aneuploid, Surv(time, delta == 1))
+diploid$surv_obj <- with(diploid , Surv(time, delta == 1))
+
+km_aneuploid <- survfit(surv_obj ~ type, 
+                        conf.type="log",
+                        type = "kaplan-meier", 
+                        data = aneuploid)
+
+summary(km_aneuploid)
+
+plot(km_aneuploid,
+     mark.time = T,
+     main="Kaplan-Meier Estimate of Aneuploid",
+     ylab = "Survival Probability", 
+     xlab = "Time to Death in Week")
+
+
+km_diploid = survfit(surv_obj~type, 
+                     conf.type="log",
+                     type = "kaplan-meier",
+                     data=diploid)
+
+summary(km_diploid)
+
+plot(km_diploid, 
+     mark.time = T,
+     main="Kaplan-Meier Estimates of Diploid",
+     ylab = "Survival Probability",
+     xlab="Time to Death in Weeks")
+```
+
