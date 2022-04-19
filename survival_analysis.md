@@ -153,3 +153,24 @@ plot(km_diploid,
 ```
 
 ![](survival_analysis_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->
+
+``` r
+# survival rate at 1 yr (52 weeks), with CI
+summary(km_aneuploid,time = c(52))
+```
+
+    ## Call: survfit(formula = surv_obj ~ type, data = aneuploid, conf.type = "log", 
+    ##     type = "kaplan-meier")
+    ## 
+    ##  time n.risk n.event survival std.err lower 95% CI upper 95% CI
+    ##    52     34      18    0.654   0.066        0.537        0.797
+
+``` r
+summary(km_diploid,time = c(52))
+```
+
+    ## Call: survfit(formula = surv_obj ~ type, data = diploid, conf.type = "log", 
+    ##     type = "kaplan-meier")
+    ## 
+    ##  time n.risk n.event survival std.err lower 95% CI upper 95% CI
+    ##    52     13      14    0.486  0.0961         0.33        0.716

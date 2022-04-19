@@ -76,3 +76,10 @@ plot(km_diploid,
      xlab="Time to Death in Weeks")
 ```
 
+```{r}
+# survival rate at 1 yr (52 weeks), with CI
+summary(km_aneuploid,time = c(52))
+
+summary(km_diploid,time = c(52))
+```
+
